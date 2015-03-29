@@ -1,0 +1,151 @@
+#m{
+	background: url("../img/441.jpg") ;
+  height:900px; width:100%;
+  
+}
+#m1{
+  //background: url("../img/f1.jpg") ;
+  background-color: #006248;
+  padding-bottom: 50px;
+  min-height:900px; 
+}
+#yourname{
+  margin-top: 25px;
+}
+#yourdata{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.modal-body a, #f1 a, #f2 a, #f3 a{
+  cursor: pointer;
+}
+
+#cent{
+  text-align: center;
+}
+#txt p{
+   text-indent: 20px; 
+}
+#pch{
+    font-size:30px;
+ // border-top: 1px black solid;
+  //color: blue;
+}
+#pch1{
+  
+    font-size:25px;
+ // border-top: 1px black solid;
+  color: black;
+}
+#main-nav{
+  //width:90%;
+}
+
+#m2{
+  //height:450px; 
+ // background: url("../img/f1.jpg") ;
+padding-top: 100px;
+  background-color: #34495e;
+   min-height:900px; 
+}
+#dm2{
+//padding-top:20px;
+padding-right: 0px;
+  padding-left: 0px;
+
+  //background: url("../img/f1.jpg") ;
+}
+#real,#rrr {
+  width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
+
+}
+#mine img{
+  float: left;
+  width:130px;
+}
+#about{
+  background-color: #34495e;
+  color: white;
+}
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+#r_row{}
+#im1,#im2{
+  cursor: pointer;
+}
+#portfolio{
+ padding-bottom: 45px;
+  margin-top:100px;
+  //height: 500px;
+}
+#data{
+  //width:320px;height:240px;
+  background-color: white;
+  margin-bottom:25px;
+  float: left;
+
+}
+#pan{
+  //width:100px;height:80px;
+background-color: grey;
+}
+
+#txt{
+  font-family:'AcademyTT';
+  font-size: 18px;
+  margin-left:5px;
+  float:left;
+}
+
+#txt_m{
+  margin-left:150px;
+  line-height: 90%; 
+    font-family:'AcademyTT';
+  font-size: 18px;
+}
+
+#r{
+  padding-top: 250px;
+	font-family: "Bankir-Retro", sans-serif;
+	font-size:50px;
+	font-weight: 250px;
+	color:white;
+  text-align: center;
+}
+
+#main-nav {  padding: 0;  background: #fff;  border-color:transparent;opacity:0.7;  }
+//.nav{border-color:transparent;background:#fff;}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {border-color:grey;background:#fff;}
+.navbar-fixed-top { border-color:transparent;  border-width: 0 0 0px;}
+//.navbar-fixed-top { border-color:transparent;  border-width: 0 0 0px;}
+//.navbar {border: 0px;	}
+
+//#site-nav a .glyphicon {
+  //display: block;
+//  margin-bottom: 5px;
+//  font-size: 21px;
+//  text-align: center;
+//  height:20px;
+//}
+
+#main-nav .container {
+  padding-top: 5px;
+//  padding-bottom: 25px;
+}
+
+#site-nav a {
+  padding: 7px 30px;
+  min-width: 120px;
+  font-size: 16px;
+  font-weight: 6400;
+  color: black;
+  text-align: center;
+  background: none;
+}
+#site{
+  display: none;
+}
