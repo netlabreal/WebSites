@@ -1,0 +1,241 @@
+html, body {
+    height: 100%;
+    //min-height: 2000px;
+    padding-top: 40px;
+
+}
+.full{
+ //   background: url("./img/f.jpg") no-repeat center center fixed;
+
+}
+#header{
+
+}
+#content{
+    min-height: 600px;
+}
+.panel-body{
+   // height: 700px;
+}
+#footer{
+
+}
+#ff{
+float: right;
+   margin-top: 8px;
+}
+#enter {
+    float: right;
+    margin-top: 7px;
+    margin-right: 10px;
+}
+#r_home{
+    margin-right: 10px;
+}
+#doppanel{
+    width: 90%;
+    margin-left: 5%;
+}
+#panellogin{
+    width: 50%;
+    margin-left: 25%;
+}
+#content_login{
+    height: 700px;
+}
+.panel-heading{
+    font-size: 15;
+    font-size: medium;
+    font-weight: bold;
+}
+.form-control{
+  margin-bottom: 7px;
+}
+#ssilka, #add_n{
+	margin-bottom: 10px;
+    font-size: 11px;
+}
+#curs{
+    cursor: pointer;
+}
+#dom,#kw,#org{
+    width: 200px;
+    float: left;
+    margin-right: 30px;
+}
+
+#lab,#street,#data{
+    float: left;
+}
+
+.ret{
+float:left;
+width:40%;
+margin-bottom:17px;
+}
+#m_tp, #m_tip, #m_rayon,#m_komn,#m_floor,#m_plosh,#m_cena,#tel1,#tel2, #c{
+height:30px;
+float:right;
+width:60%;
+}
+
+#top {
+    background-color: #000000;
+    padding-bottom: 10px;
+}
+.last {
+background-color: #000000;
+width:100%;
+height:40px;
+margin-top:20px;
+}
+
+.form-group{
+    padding-left: 5px;padding-right: 5px;
+    margin-bottom: -5px;
+}
+#footer {
+	position: relative;
+    margin-top: 60px;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background-color: #444444;
+	z-index: 1;
+
+}
+.textfooter{
+    margin-top: 5px;
+    color: #ffffff;
+}
+#id, #vid{
+visible:hide;
+}
+.nav a{
+cursor:pointer;
+}
+.ffg{
+width:150px;
+float:left;
+margin-right:15px;
+margin-left:5px;
+}
+.ph{
+height:25px; font-size: 14px;
+padding-left:10px;
+}
+#rdata{
+background-color:#eee;
+}
+#ssilka_r{
+margin-top:10px;
+}
+
+#m_img1{
+width:60%;
+float:left;
+margin-bottom:15px;
+margin-top:5px;
+margin-left:5px;
+}
+#del_img, #del_img_news{
+float:right;
+}
+#add_f{
+float:left;
+margin-bottom:10px;
+font-size:12px;
+}
+#del_img{
+margin-right:10px;
+margin-top:10px;
+font-size:12px;
+}
+#del{
+float:left;
+margin-bottom:10px;
+}
+
+#file{
+color:blue;
+}
+#edit,#exit{
+margin-right:5px;
+float:right;
+
+}
+#knopki{
+margin-top:15px;
+margin-bottom:15px;
+
+}
+#ddd{
+float:left;
+width:100%;
+height:100%;
+}
+
+#add_foto{
+width:100%;
+float:left;
+margin-top:25px;
+}
+#file{
+margin-top:5px;
+margin-left:5px;
+}
+#btn_f{
+margin-bottom:5px;
+margin-left:5px;
+}
+#f_form{
+float:left;
+width:50%;
+}
+#status{
+float:right;
+}
+#m_but,#m_but_del{
+float:right;
+margin-right:10px;
+margin-top:2px;
+}
+#m_t{
+float:left;
+width:60%;
+}
+#id_for_del{display:none;}
+#m_b{
+height:100px;
+}
+
+#z_del,#ray_del,#perebor,#news_del{
+  cursor:pointer;  
+}
+#add_r{
+        font-size: 11px;
+
+}
+.row{
+    margin-bottom: 45px;
+}
+
+#user{
+    float: right;
+    margin-right: 15px;
+    cursor:pointer;
+}
+#pan_img{
+    width:200px;
+    height: 150px;
+    margin-left: 0px;
+    float: left;
+    padding-right: 10px;
+}
+#st{
+    display: none;
+}
+
+.list-group {
+    margin-bottom: 0px;
+}

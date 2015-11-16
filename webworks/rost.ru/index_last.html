@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/m1.css">
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <title></title>
+</head>
+<body >
+<div id="main_up">
+	<a href="index_last.html"><img src="img/logo.png"></a>
+	<div id="up_txt">
+		<p>С нашей помощью Вы осуществляете</p>
+		<p>свои планы, не нарушая закон.</p>
+
+	</div>
+</div>
+<div class="navbar navbar-default " role="navigation">
+    <div class="container">
+        <div class="navbar-header" id="ic">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"></button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" id="main_menu">
+                <li class="active" id="f_m"><a>Главная</a></li>
+                <li id="s_m"><a>Недвижимость</a></li>
+                <li id="t_m"><a>Наши услуги</a></li>
+                <li id="fo_m"><a>О нас</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fluid" id="rcf">
+    <div class="row" id="r_row">
+
+		<div class="col-md-4 col-xs-12 col-sm-12" id="dop_menu">
+			<div class="panel panel-default">
+				<div class="panel-heading">Поиск недвижимости</div>
+					<div class="panel-body">
+						 <select class="form-control input-sm" id="tp" >
+										<option selected>-Тип операции-</option>
+						 </select>
+						 <select class="form-control input-sm" id="tip" >
+									 <option selected disabled>Выберите тип недвижимости</option>
+						 </select>
+						 <select class="form-control input-sm" id = "rayon">
+									 <option selected disabled>Выберите район</option>
+						 </select>
+						 <button class="btn btn-primary btn-sm" id="b_search">Поиск</button>
+					</div>
+				</div>
+
+				<div class="panel panel-default" id="r_txt">
+					Есть вопросы?
+					Позвоните нам
+					<p> (4236)
+						62-64-30
+					</p>
+				</div>
+			<div class="panel panel-default" id="r_txt">
+				Есть вопросы?
+				Позвоните нам
+				<p> (4236)
+					62-64-30
+				</p>
+			</div>
+			<div class="panel panel-default" id="r_txt">
+				Есть вопросы?
+				Позвоните нам
+				<p> (4236)
+					62-64-30
+				</p>
+			</div>
+
+
+
+
+			</div>
+
+		<div class="col-md-8 col-xs-12 col-sm-12" id="main-content">
+		</div>
+
+
+		</div>
+	</div>
+
+</div>
+
+
+
+		
+
+<div id="footer">
+    <div class="container-fluid">
+	<div class="row">
+        <div class="col-md-4  col-xs-12 col-sm-4">
+			<div class="textfooter">
+				<div id ="textfooter_txt">
+					<p>692900 Приморский край</p>
+					<p>г.Находка, ул. Гагарина дом 8</p>
+					<p>Телефон: (4236) 62-64-30</p>
+					<p>www......ru</p>
+					<p>e-mail: info@</p>
+				</div>	
+			</div>
+		</div>
+
+		<div class="col-md-4  col-xs-12 col-sm-4">
+			<div class="soc_footer">
+				<img src="img/face1.png">
+			</div>
+		</div>
+
+        <div class="col-md-4  col-xs-12 col-sm-4">
+			<div class="textfooter">			
+	
+			<input type="text" class="form-control" id="yourname" placeholder="Введите Ваше имя">
+			<input type="text" class="form-control" id="yourmale" placeholder="Введите Ваш телефон">
+			<textarea rows="2" class="form-control" id='yourdata' placeholder="Текст Вашей заявки"></textarea>	
+			<button class="btn btn-primary btn-sm" id="yourb">Оставить заявку</button>			
+			</div>
+		</div>
+		
+	</div>	
+    </div>
+	
+		<div class='last'>
+		<div id="last_txt"> Всё права защищены © 2015 ОСТ - юридическое бюро недвижимости. </div><br>
+		<div id="last_txt"> <p>Дизайн и верстка @LAB </p></div>
+		</div>
+
+</div>
+
+
+<div class="modal fade" id="ViewObject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div id="m_id"></div>
+			<div class="modal-header" id="m_head">
+
+			</div>
+			<div class="modal-body" id="m_body">
+
+			</div>
+			<div class="modal-footer" id="m_foot">
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="Pause" tabindex="-1" role="dialog" aria-hidden="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<img id="load" src="img/ajax-loader.gif" /><div class="load_txt"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+$(function () {
+	$('#last_txt p').click(function(){
+		document.location.href = "http://www.designedbylab.ru";
+	});
+////////////////////////////////////////////////////////////////
+function AddToMainContentDataParam($tp,$tip,$r,$pag,$p){
+		$.ajax({
+			type:"POST",
+			dataType: "json",
+			url:"../inc/ind.php",
+			data:{param:"3",tp:$tp,tip:$tip,rayon:$r,page:$pag,p:$p},
+//			url:"/inc/data.php",
+//			data:{dataa:"5",tp:$tp,tip:$tip,rayon:$r,page:$pag,p:$p},
+			beforeSend: function (data) {
+				$('.load_txt').html("");
+				$('.load_txt').append("Подождите! Идет обработка данных!");
+				$('#Pause').modal({
+					keyboard: false,
+					backdrop: false
+				})
+				$('#Pause').modal("show");
+			},
+			success:function(data){
+			
+			tx="";tx1="Аренда-Продажа";tx2="Любая недвижимость";tx3="Любой район";
+			if($tp==0 && $tip==0 && $r==0){tx="Все объекты недвижимости";}else
+			{
+				if($tp==0){tx1="Аренда-Продажа"}else{tx1=$("#tp option:selected" ).text();}
+				if($tip==0){tx2="Любая недвижимость"}else{tx2=$("#tip option:selected" ).text();}
+				if($r==0){tx3="Любой район"}else{tx3='район '+$("#rayon option:selected" ).text();}
+			}
+				$('#main-content').html("");
+				$('#main-content').append('<ol class="breadcrumb"><li>'+tx1+'</li><li>'+tx2+'</li><li>'+tx3+'</li></ol>');
+				 if(data.length==0){
+					$('#main-content').html("");
+					$('#main-content').append('<ol class="breadcrumb"><li>Извините! По Вашему кртитерию поиска ничего не найдено!</li></ol>');
+				 }
+				 for(var i = 0;i<data.length;i++)
+					{
+						$txt = "";
+						$tt="";$cen="не указана";imgg = 'img/p.jpg';
+						if(data[i][7]!=0){$cen=data[i][7];}
+						if(data[i][10]!=null){imgg=data[i][10];}
+						if(data[i][2]==="Продажа"){$tt="Продается";}if(data[i][2]==="Аренда"){$tt="Сдается";}
+						if(data[i][1]==="Дом"){$txt=$tt+' '+data[i][1].toLowerCase()+' '+data[i][6]+' кв.м в районе '+data[i][3];}
+						else{$txt=$tt+' '+data[i][4]+' комн. '+data[i][1].toLowerCase()+' '+data[i][6]+' кв.м в районе '+data[i][3];}
+						$('#main-content').append('<div class="col-md-6 col-xs-12 col-sm-6" id="kartochka" ><div id="id">'+data[i][0]+'</div>'+
+						'<div class="panel panel-default" id="rdata" data-toggle="popover" data-placement="bottom"  data-content="'+data[i][8]+'" >'+
+						'<img class="img-responsive ffg" src="'+imgg+'">'+
+						'<div id="kartochka_txt">'+$txt+'</div>'+
+						'<div id="cena">'+$cen+'</div>'+
+						'<button class="btn btn-primary" id="ssilka_r">Подробнее</button>'+
+						'<br></div></div>');
+						$('[data-toggle="popover"]').popover({trigger:'hover'}); 
+					}	
+			$('#main-content').delegate("button","click",function(){
+			                                                $('#m_foot').html("");
+															getObject($(this).parent().parent().find('#id').text());
+														$('#ViewObject').modal("show");
+														});	
+					
+			
+			pagerParam($pag,$tp,$tip,$r,$p);	
+			$('#Pause').modal("hide");
+			},
+			error:function(result){
+			
+				$('.load_txt').html("");
+				$('.load_txt').append("Произошла ошибка!!! Обратитесь к ресурсу чуть позже.");
+				$('#Pause').modal("hide");
+			}
+	});	
+	
+
+}
+////////////////////////////////////////////////////////////////
+function getObject(rid){
+		$.ajax({
+		type:"POST",
+		dataType: "json",
+		url:"/inc/ind.php",
+		data:{param:"2",id:rid},
+		success:function(data){
+			$tt="";
+			if(data[2]==="Продажа"){$tt="Продается";}if(data[2]==="Аренда"){$tt="Сдается";}
+			$('#m_head').html("");$('#m_body').html("");$('#m_foot').html("");
+			$('#m_head').append($tt+" "+data[1].toLowerCase());
+
+				$('#m_body').html("");
+				$('#m_body').append('<table class="table" id="t1"><tr><td>'+
+				'Код объекта</td><td>'+data[0]+'</td></tr>'+
+				'<tr><td>Район</td><td>'+data[3]+'</td></tr>'+
+				'<tr><td>Количество комнат</td><td>'+data[4]+'</td></tr>'+
+				'<tr><td>Этаж</td><td>'+data[5]+'</td></tr>'+
+				'<tr><td>Площадь</td><td>'+data[6]+' м2</td></tr>'+
+				
+				'</table>');
+				
+				//$('#m_body').append('Код объекта '+data[0]+'<br>');
+				//$('#m_body').append('Район '+data[3]+'<br>');
+				//$('#m_body').append('Количество комнат '+data[4]+'<br>');
+				//$('#m_body').append('Этаж '+data[5]+'<br>');
+				//$('#m_body').append('Площадь '+data[6]+' м2 <br>');
+				cen = "Цена не указана";if(data[7]!=0){cen = data[7]+" руб.";}
+				$('#m_body').append('<div id="cena">'+cen+' </div><br>');
+				$('#m_body').append('<div class="panel panel-default" id="m_op">'+data[8]+' </div>');
+				$('#m_body').append('<h4>По всем вопросам обращаться: 8-914...</h4>');
+			if(data[10].length!=0){
+				for(var i = 0;i<data[10].length;i++)
+				{
+					$('#m_foot').append('<img class="img-responsive" id="m_img" src="'+data[10][i]+'"></img><br>');
+				}	
+				//$('#m_body').append('</div">');
+			}	
+			
+			
+		},
+		error:function(result){
+		}
+	});	
+}
+////////////////////////////////////////////////////////////////
+function pagerParam($el,$tp,$tip,$r,$p){
+		$.ajax({
+		type:"POST",
+		dataType: "json",
+		url:"/inc/ind.php",
+		data:{param:"4",tp:$tp,tip:$tip,rayon:$r,p:$p},
+//		url:"/inc/data.php",
+//		data:{dataa:"6",tp:$tp,tip:$tip,rayon:$r,p:$p},
+		success:function(data){
+		if(data>1){AddPagerParam(data,$el,$tp,$tip,$r,$p);}
+		},
+		error:function(result){
+		}
+	});	
+	
+}
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+function AddPagerParam($col,$el,$tp,$tip,$r,$p){
+	if($col>1){
+		$('#main-content').append('<div class="pag"><ul class="pagination pagination-sm" id="perebor">');
+		//$('.pagination').append('<li class="disabled"><a href="#">&laquo;</a></li>');
+		$i = 1;
+		while($col>=$i){
+			if($el==$i){$('.pagination').append('<li class="active"><a id="pg">'+$i+'</a></li>');}
+			else{$('.pagination').append('<li ><a id="pg">'+$i+'</a></li>');}
+			$i++;
+		}
+		//$('.pagination').append('<li id="next"><a>>></a></li>');
+		$('.pagination').append('</ul></div>');
+	
+		$('#perebor a').click(function(){
+			var list = $('#perebor').children();
+			var ch = $('#perebor [class = active]');
+			
+			if($(this).parent().attr('id')=="next"){
+				if(ch.next().attr('id')=="next"){ch.next().addClass('disabled');}else{ch.removeClass("active");ch.next().addClass("active");}
+			}
+			else
+			{
+				ch.removeClass("active");	
+				$(this).parent().addClass("active");
+				AddToMainContentDataParam($tp,$tip,$r,$(this).text(),$p);
+				//alert($(this).text());
+			}
+		}); 
+
+	}	
+}
+////////////////////////////////////////////////////////////////
+function AddPager1($col,$el){
+	if($col>1){
+		$('#main-content').append('<div class="pag"><ul class="pagination pagination-sm" id="perebor">');
+		//$('.pagination').append('<li class="disabled"><a href="#">&laquo;</a></li>');
+		$i = 1;
+		while($col>=$i){
+			if($el==$i){$('.pagination').append('<li class="active"><a id="pg">'+$i+'</a></li>');}
+			else{$('.pagination').append('<li ><a id="pg">'+$i+'</a></li>');}
+			$i++;
+		}
+		//$('.pagination').append('<li id="next"><a>>></a></li>');
+		$('.pagination').append('</ul></div>');
+	
+		$('#perebor a').click(function(){
+			var list = $('#perebor').children();
+			var ch = $('#perebor [class = active]');
+			
+			if($(this).parent().attr('id')=="next"){
+				if(ch.next().attr('id')=="next"){ch.next().addClass('disabled');}else{ch.removeClass("active");ch.next().addClass("active");}
+			}
+			else
+			{
+				ch.removeClass("active");	
+				$(this).parent().addClass("active");
+				AddToMainContentData($(this).text());
+				//alert($(this).text());
+			}
+		}); 
+
+	}	
+}
+////////////////////////////////////////////////////////////////
+function AddToMainContentData11($pag){
+		$.ajax({
+		type:"POST",
+		dataType: "json",
+		url:"/inc/data.php",
+		data:{dataa:"5",page:$pag},
+		beforeSend: function (data) {
+			$('.load_txt').html("");
+				$('.load_txt').append("Подождите! Идет обработка данных!");
+			$('#Pause').modal({
+			keyboard: false,
+			backdrop: false
+			})
+			$('#Pause').modal("show");
+		},
+		success:function(data){
+			$('#main-content').html("");
+			$('#main-content').append('<ol class="breadcrumb"><li>Все объекты недвижимости</li></ol>');
+			 for(var i = 0;i<data.length;i++)
+				{
+					$txt = "";
+					$tt="";$cen="не указана";imgg = 'img/p.jpg';
+					if(data[i][10]!=null){imgg=data[i][10];}
+					if(data[i][7]!=0){$cen=data[i][7];}
+					if(data[i][2]==="Продажа"){$tt="Продается";}if(data[i][2]==="Аренда"){$tt="Сдается";}
+					if(data[i][1]==="Дом"){$txt=$tt+' '+data[i][1].toLowerCase()+' '+data[i][6]+' кв.м в районе '+data[i][3];}
+					else{$txt=$tt+' '+data[i][4]+' комн. '+data[i][1].toLowerCase()+' '+data[i][6]+' кв.м в районе '+data[i][3];}
+					$('#main-content').append('<div class="col-md-6 col-xs-12 col-sm-6" id="kartochka"><div id="id">'+data[i][0]+'</div>'+
+					'<div class="panel panel-default" id="rdata" data-toggle="popover" data-placement="bottom"  data-content="'+data[i][8]+'" >'+
+					'<img class="img-responsive ffg" src="'+imgg+'">'+
+					'<div id="kartochka_txt">'+$txt+'</div>'+
+					'<div id="cena">'+$cen+'</div>'+
+					'<button class="btn btn-primary" id="ssilka_r">Подробнее</button>'+
+					'<br></div></div>');
+					$('[data-toggle="popover"]').popover({trigger:'hover'}); 
+				}	
+
+			$('#main-content').delegate("button","click",function(){
+															getObject($(this).parent().parent().find('#id').text());
+														$('#ViewObject').modal("show");
+														});	
+		pager($pag);		
+		$('#Pause').modal("hide");
+		},
+		error:function(result){
+		$('.load_txt').html("");
+				$('.load_txt').append("Произошла ошибка!!! Обратитесь к ресурсу чуть позже.");
+				$('#Pause').modal("hide");	
+		}
+		});
+
+}	
+////////////////////////////////////////////////////////////////
+function Uslugi(){
+	$('#main-content').html('');
+	$('#main-content').append('<ol class="breadcrumb"><li>Наши услуги</li></ol>'+
+	'<div class="panel panel-default" id="r_txt">'+
+	'Агентство недвижимости Отрада оказывает широкий спектр услуг, связанных с покупкой, продажей, арендой и обменом жилья в Приморском крае.<br>'+
+	'   - Бесплатная экспертная оценка квартиры.<br>'+
+	'   - Полное юридическое сопровождение сделок.<br>'+
+	'   - Регистрация сделок с недвижимостью.<br>'+
+	'   - Срочный выкуп и срочная продажа квартир и комнат.<br>'+
+	'   - Военная ипотека, ГЖС, субсидии.<br>'+
+	'Всем клиентам, обратившимся в компанию, гарантируются высокий уровень сервиса, грамотное юридическое сопровождение сделки, предоставление актуальной информации по предложению и спросу на квартиры в Приморском крае.'+
+	'</div>');
+	var ch = $('#main_menu [class = active]');
+	ch.removeClass("active");
+	$('#t_m').addClass("active");
+}
+////////////////////////////////////////////////////////////////
+function About(){
+	$('#main-content').html('');
+	$('#main-content').append('<ol class="breadcrumb"><li>О нас</li></ol>'+
+	'<div class="panel panel-default" id="r_txt">'+
+	'Вот уже более 5 лет агенство недвижимости Отрада оказывает качественные и доступные  услуги.<br>'+
+	'Мы ставим своей  целью максимально полно проверить  каждый из выбираемых объектов.<br>'+
+	'Во всех сделках  нами осуществляется полная проверка юридической чистоты квартиры с  выдачей заключения о проверке.<br>'+
+	'Работая на рынке недвижимости более 5 лет, мы имеем возможность предоставлять качественные профессиональные услуги на очень привлекательных условиях.<br>'+
+	'Мы уверены в  качестве своей работы, поэтому даем в том числе и финансовые гарантии своим клиентам.<br>'+
+	'</div>'+
+	'<img class="img-responsive" src="//api-maps.yandex.ru/services/constructor/1.0/static/?sid=3NS_7k7HNacEuPyNd2hbl25rt4GYcgVu&width=600&height=350" alt=""/>'
+	);
+
+
+	var ch = $('#main_menu [class = active]');
+	ch.removeClass("active");
+	$('#fo_m').addClass("active");
+}
+////////////////////////////////////////////////////////////////
+function MainContenet(){
+$('#main-content').html('');
+$('#main-content').append('<div class="panel panel-default">'+
+							'<img class="img-responsive" src="img/m3.jpg"></div>'+
+//							'<div class="col-md-8 col-xs-12 col-sm-12">'+
+//							'<div class="real" id="first" data-toggle="popover" data-placement="bottom"  data-content="Объекты недвижимости"><img class="img-responsive img-rounded" src="img/r_m1.jpg"></div></div>'+
+//							'<div class="real" id="second" data-toggle="popover" data-placement="bottom"  data-content="Наши услуги"><img class="img-responsive img-rounded" src="img/p1.jpg"></div>'+
+							'</div></div>');
+$('[data-toggle="popover"]').popover({trigger:'hover'});
+
+$('#first').click(function(){
+	var ch = $('#main_menu [class = active]');
+	ch.removeClass("active");
+	$('#s_m').addClass("active");
+	//----------------//
+	AddToMainContentDataParam(0,0,0,1,1);	
+	//----------------//
+});
+$('#second').click(function(){
+Uslugi();
+});
+$('#first').hover(function(){
+	$('#first img').attr('src', 'img/r_m2.jpg');
+	//alert("1");
+},function(){
+	$('#first img').attr('src', 'img/r_m1.jpg');
+});
+
+$('#second').hover(function(){
+	$('#second img').attr('src', 'img/p2.jpg');
+	//alert("1");
+},function(){
+	$('#second img').attr('src', 'img/p1.jpg');
+});
+							
+}	
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+function getTdata(){
+		$.ajax({
+			type:"POST",
+			dataType: "json",
+			url:"/inc/ind.php",
+			data:{param:"1"},
+//			url:"/inc/data.php",
+//			data:{init:"333"},
+			beforeSend: function (data) {
+				$('.load_txt').html("");
+				$('.load_txt').append("Подождите! Идет обработка данных!");
+				$('#Pause').modal({
+					keyboard: false,
+					backdrop: false
+				})
+				$('#Pause').modal("show");
+			},
+			success:function(data){
+				if(data[0].length!=0){
+					$('#tp').html("");
+					$('#tp').append("<option selected value='0'>-Тип операции-</option>");
+						 for(var i = 0;i<data[0].length;i++)
+						{
+							$('#tp').append("<option value="+data[0][i]['id']+">"+data[0][i]['name']+"</option>");
+						}
+				}				
+				else{
+					$('#tp').attr('disabled', true);
+				}
+				if(data[1].length!=0){
+					$('#tip').html("");
+					$('#tip').append("<option selected value='0'>-Тип недвижимости-</option>");
+					 for(var i = 0;i<data[1].length;i++)
+					{
+						$('#tip').append("<option value="+data[1][i]['id']+">"+data[1][i]['name']+"</option>");
+					}	
+				}
+				else{
+					$('#tip').attr('disabled', true);
+				}
+				if(data[2].length!=0){
+					$('#rayon').html("");
+					$('#rayon').append("<option selected value='0'>-Район недвижимости-</option>");
+					 for(var i = 0;i<data[2].length;i++)
+					{
+						$('#rayon').append("<option value="+data[2][i]['id']+">"+data[2][i]['name']+"</option>");
+					}	
+				}
+				else{
+					$('#rayon').attr('disabled', true);
+				}
+				$('#Pause').modal("hide");
+			},
+			error:function(result){
+				$('.load_txt').html("");
+				$('.load_txt').append("Произошла ошибка!!! Обратитесь к ресурсу чуть позже.");
+				$('#Pause').modal("hide");
+				$('#rayon').attr('disabled', true);$('#tip').attr('disabled', true);$('#tp').attr('disabled', true);
+			}
+		});	
+	}
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+function Form_null(){
+$('#tp').val(0);$('#tip').val(0);$('#rayon').val(0);
+}	
+////////////////////////////////////////////////////////////////
+	
+/*****************************************/
+MainContenet();
+getTdata();
+$('[data-toggle="popover"]').popover({trigger:'hover'}); 
+/*****************************************/
+
+$('#main_menu a').click(function(){
+	var ch = $('#main_menu [class = active]');
+	ch.removeClass("active");
+	$(this).parent().addClass("active");
+	if($(this).text()=="Главная"){
+		MainContenet();
+		Form_null();
+		//alert("Главная");
+	}
+	if($(this).text()=="Недвижимость"){
+		AddToMainContentDataParam(0,0,0,1,1);
+		Form_null();
+		//alert("Недвижимость");
+	}
+	if($(this).text()=="Наши услуги"){
+		Uslugi();
+	}
+	if($(this).text()=="О нас"){
+		About();
+	}
+});
+
+
+$('#yourb').click(function(){
+	if($('#yourname').val()!="" && $('#yourmale').val()!="" && $('#yourdata').val()!=""){
+		$.ajax({
+			type:"POST",
+			dataType: "json",
+			url:"/inc/ind.php",
+			data:{param:"5",name:$('#yourname').val(),tel:$('#yourmale').val(),txt:$('#yourdata').val()},
+			beforeSend: function (data) {
+				$('.load_txt').html("");
+				$('.load_txt').append("Подождите! Идет обработка данных!");
+				$('#Pause').modal({keyboard: false,backdrop: false});
+				$('#Pause').modal("show");				
+			},
+			success:function(data){
+				$('.load_txt').html("");
+				$('.load_txt').append("Ваша заявка подана!");
+				$('#yourname').val("");$('#yourmale').val("");$('#yourdata').val("");
+				setTimeout(function () {$('#Pause').modal("hide");},1000);				
+
+			},
+			error:function(result){
+				$('.load_txt').html("");
+				$('.load_txt').append("Произошла ошибка!!! Обратитесь к ресурсу чуть позже.");
+				$('#Pause').modal("hide");				
+			}
+		});	
+
+	}
+	else{
+				$('.load_txt').html("");
+				$('.load_txt').append("Необходимо заполнить все поля!");
+				$('#Pause').modal({keyboard: false,backdrop: false});
+				$('#Pause').modal("show");						
+				setTimeout(function () {$('#Pause').modal("hide");},1000);				
+	}	
+});
+
+
+$('#b_search').click(function(){
+	tp1 = $('#tp').val();tip1 = $('#tip').val();rayon1 = $('#rayon').val();
+	//----------------//
+	var ch = $('#main_menu [class = active]');
+	ch.removeClass("active");
+	$('#s_m').addClass("active");
+	//----------------//
+		AddToMainContentDataParam(tp1,tip1,rayon1,1,1);	
+	//----------------//
+});
+});		
+</script>
+</body>
+</html>
+
